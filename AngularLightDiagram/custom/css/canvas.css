@@ -1,0 +1,29 @@
+﻿body{
+    background-color:ghostwhite;
+}
+
+.lightchart{
+    background-color:white;
+}
+.lightchart canvas:nth-child(n){
+    position:absolute;
+}
+.lightchart canvas:nth-child(1){
+    z-index:1;
+}
+.lightchart canvas:nth-child(2){
+    z-index:0;
+}
+
+.chartContainer2{
+    display:flex;
+    border:1px solid red;
+    margin-left:-15px;
+    margin-top:10px;
+}
+
+.chartContainer2 .lightchart:nth-child(2){
+    margin-top:420px;
+    margin-left:-220px;
+}
+

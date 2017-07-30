@@ -1,0 +1,36 @@
+﻿<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" ng-app="app">
+
+<head>
+    <title></title>
+    <script src="/download_lib/nuget_packages/scripts/angular.min.js"></script>
+    <script src="/download_lib/nuget_packages/scripts/jquery-1.9.1.min.js"></script>
+    <script src="/download_lib/nuget_packages/scripts/bootstrap.min.js"></script>
+    <script src="/download_lib/nuget_packages/scripts/underscore.min.js"></script>
+    <link rel="stylesheet" type="text/css" href="/download_lib/nuget_packages/Content/bootstrap.min.css">
+    <link rel="stylesheet" type="text/css" href="/download_lib/nuget_packages/Content/bootstrap-theme.min.css">
+    <title></title>
+
+    <!--create js-->
+    <script src="https://code.createjs.com/createjs-2015.05.21.min.js"></script>
+
+    <!-- custom -->
+    <script src="/custom/js/controller.js"></script>
+    <script src="/custom/js/lightdiagram.js"></script>
+    <link rel="stylesheet" type="text/css" href="/custom/css/lightdiagram.css">
+</head>
+<body>
+    <div ng-controller="MyController" ng-init="initialize()">
+        <div class="container-fluid">
+            <div class="row">
+                <div class="col-lg-12">
+                    <light-diagram  title="dircanvas1" 
+                                    chartid="main" 
+                                    backgroundid="axis" 
+                                    width="1500" height="800"/>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

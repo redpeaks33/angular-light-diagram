@@ -1,0 +1,15 @@
+C:\Users\RedpeaksDev\Desktop\angular-light-flowchart\LightFlowChart\bin\Routing.dll.config
+C:\Users\RedpeaksDev\Desktop\angular-light-flowchart\LightFlowChart\bin\Routing.dll
+C:\Users\RedpeaksDev\Desktop\angular-light-flowchart\LightFlowChart\bin\Routing.pdb
+C:\Users\RedpeaksDev\Desktop\angular-light-flowchart\LightFlowChart\bin\Microsoft.Web.Infrastructure.dll
+C:\Users\RedpeaksDev\Desktop\angular-light-flowchart\LightFlowChart\bin\Newtonsoft.Json.dll
+C:\Users\RedpeaksDev\Desktop\angular-light-flowchart\LightFlowChart\bin\System.Web.Http.dll
+C:\Users\RedpeaksDev\Desktop\angular-light-flowchart\LightFlowChart\bin\System.Web.Http.WebHost.dll
+C:\Users\RedpeaksDev\Desktop\angular-light-flowchart\LightFlowChart\bin\System.Net.Http.Formatting.dll
+C:\Users\RedpeaksDev\Desktop\angular-light-flowchart\LightFlowChart\bin\Newtonsoft.Json.xml
+C:\Users\RedpeaksDev\Desktop\angular-light-flowchart\LightFlowChart\bin\System.Web.Http.xml
+C:\Users\RedpeaksDev\Desktop\angular-light-flowchart\LightFlowChart\bin\System.Web.Http.WebHost.xml
+C:\Users\RedpeaksDev\Desktop\angular-light-flowchart\LightFlowChart\bin\System.Net.Http.Formatting.xml
+C:\Users\RedpeaksDev\Desktop\angular-light-flowchart\LightFlowChart\obj\Debug\LightFlowChart.csprojResolveAssemblyReference.cache
+C:\Users\RedpeaksDev\Desktop\angular-light-flowchart\LightFlowChart\obj\Debug\Routing.dll
+C:\Users\RedpeaksDev\Desktop\angular-light-flowchart\LightFlowChart\obj\Debug\Routing.pdb
