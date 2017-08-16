@@ -7,6 +7,7 @@
     <script src="/download_lib/nuget_packages/scripts/jquery-1.9.1.min.js"></script>
     <script src="/download_lib/nuget_packages/scripts/bootstrap.min.js"></script>
     <script src="/download_lib/nuget_packages/scripts/underscore.min.js"></script>
+    <script src="/download_lib/nuget_packages/scripts/angular-ui-router.min.js"></script>
     <link rel="stylesheet" type="text/css" href="/download_lib/nuget_packages/Content/bootstrap.min.css">
     <link rel="stylesheet" type="text/css" href="/download_lib/nuget_packages/Content/bootstrap-theme.min.css">
     <title></title>
@@ -17,17 +18,28 @@
     <!-- custom -->
     <script src="/custom/js/controller.js"></script>
     <script src="/custom/js/lightdiagram.js"></script>
+    <script src="/custom/js/lightoverview.js"></script>
+    <script src="/custom/js/router.js"></script>
     <link rel="stylesheet" type="text/css" href="/custom/css/lightdiagram.css">
+    <link rel="stylesheet" type="text/css" href="/custom/css/lightoverview.css">
 </head>
 <body>
     <div ng-controller="MyController" ng-init="initialize()">
         <div class="container-fluid">
             <div class="row">
-                <div class="col-lg-12">
-                    <light-diagram  title="dircanvas1" 
-                                    chartid="main" 
-                                    backgroundid="axis" 
-                                    width="1500" height="800"/>
+                <div class="col-lg-9">
+                    <ul class="nav nav-tabs">
+                        <li class="active"><a data-toggle="tab" ng-click="tabClicked('diagram')">Diagram</a></li>
+                        <li class=""><a data-toggle="tab" ng-click="tabClicked('overview')">Overview</a></li>
+                    </ul>
+                    <light-overview title="dircanvas1"
+                                   chartid="main"
+                                   backgroundid="axis"
+                                   width="1500" height="800" />
+                    <div ui-view></div>
+                </div>
+                <div class="col-lg-3">
+
                 </div>
             </div>
         </div>
