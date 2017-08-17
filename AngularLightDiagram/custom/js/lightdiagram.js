@@ -60,20 +60,22 @@
                     createRectangle(i);
                 }
             }
-            let shape;
+            //let shape;
             let dragPointX;
             let dragPointY;
-            function createRectangle(i) {
-                var g = new createjs.Graphics();
-                g.s("Red").setStrokeStyle(1); //color dot thickness
-                g.f("Pink").rr(0, 30 * i, 100, 20, 5);
-                shape = new createjs.Shape(g);
-                setEventListner(shape);
-                $scope.stage.addChild(shape);
-            }
+            //function createRectangle(i) {
+            //    var g = new createjs.Graphics();
+            //    g.s("Red").setStrokeStyle(1); //color dot thickness
+            //    g.f("Pink").rr(0, 30 * i, 100, 20, 5);
+            //    shape = new createjs.Shape(g);
+            //    setEventListner(shape);
+            //    $scope.stage.addChild(shape);
+            //}
 
+            let selectedFigure;
             function setEventListner(shape) {
                 shape.addEventListener("mousedown", function (e) {
+                    //selectedFigure = shape;
                     dragPointX = $scope.stage.mouseX - e.target.x;
                     dragPointY = $scope.stage.mouseY - e.target.y;
                 });
@@ -82,6 +84,19 @@
                     e.target.y = $scope.stage.mouseY - dragPointY;
                 });
             }
+            $scope.$on('addFigure',function(e,info){
+                var g = new createjs.Graphics();
+                g.s("Red").setStrokeStyle(1); //color dot thickness
+                g.f("Pink").rr(100, 100, 50, 50, 5);
+                let shape = new createjs.Shape(g);
+                setEventListner(shape);
+                $scope.stage.addChild(shape);
+                $scope.stage.update();
+            });
+
+            $scope.$on('deleteFigure', function (e) {
+                alert();
+            });
         }],
     };
 });

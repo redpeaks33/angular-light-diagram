@@ -13,11 +13,11 @@
      z-index:-1;
 }
 .lightdiagram canvas:nth-child(1){
-    z-index:1;
+    z-index:0;
     border:10px solid green;
 }
 .lightdiagram canvas:nth-child(2){
-    z-index:0;
+    z-index:1;
     border:10px solid yellow;
 }
 

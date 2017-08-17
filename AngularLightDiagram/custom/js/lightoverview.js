@@ -87,6 +87,9 @@
 
                 shape = new createjs.Shape(g);
                 shape.name = '1imnida';
+                shape.alpha = 0;
+                shape.hitArea = new createjs.Shape(g);
+                shape.hitArea.graphics.beginFill("#FFF000").dr(500, 200, 400, 30);
                 setEventListner(shape);
                 $scope.stage.addChild(shape);
             }
@@ -98,6 +101,10 @@
 
                 shape = new createjs.Shape(g);
                 shape.name = '2imnida';
+                shape.alpha = 0;
+                shape.hitArea = new createjs.Shape(g);
+                shape.hitArea.graphics.beginFill("#FFF000").dr(700, 500, 400, 30);
+
                 setEventListner(shape);
                 $scope.stage.addChild(shape);
             }

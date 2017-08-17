@@ -5,7 +5,7 @@
           templateUrl: '/custom/html/diagramcontainer.html'
       })
       .state('overview', {
-          url: 'overview',
+          url: '/overview',
           templateUrl: '/custom/html/overviewcontainer.html'
       })
 }]);

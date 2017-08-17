@@ -32,14 +32,11 @@
                         <li class="active"><a data-toggle="tab" ng-click="tabClicked('diagram')">Diagram</a></li>
                         <li class=""><a data-toggle="tab" ng-click="tabClicked('overview')">Overview</a></li>
                     </ul>
-                    <light-overview title="dircanvas1"
-                                   chartid="main"
-                                   backgroundid="axis"
-                                   width="1500" height="800" />
                     <div ui-view></div>
                 </div>
                 <div class="col-lg-3">
-
+                    <button class="btn btn-primary" ng-click="addFigure()">Add</button>
+                    <button class="btn btn-primary" ng-click="deleteFigure()">Delete</button>
                 </div>
             </div>
         </div>

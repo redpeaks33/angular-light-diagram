@@ -2,13 +2,20 @@
     'ui.router',
 ]);
 
-main.controller('MyController', ['$scope', function ($scope) {
+main.controller('MyController', ['$scope', '$state', '$rootScope',function ($scope, $state,$rootScope) {
     $scope.initialize = function()
     {
-        $state.go('diagram');
+        $state.go('overview');
     };
 
     $scope.tabClicked = function (type) {
         $state.go(type);
+    }
+
+    $scope.addFigure = function () {
+        $rootScope.$broadcast('addFigure');
+    }
+    $scope.deleteFigure = function () {
+        $rootScope.$broadcast('deleteFigure');
     }
 }]);
