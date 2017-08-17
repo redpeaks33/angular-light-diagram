@@ -46,7 +46,7 @@
                 $scope.stage = new createjs.Stage($scope.chartid);
                 ctx = $scope.stage.canvas.getContext('2d');
 
-                baseBitmap = new createjs.Bitmap('/custom/resource/chk_captcha.png')
+                baseBitmap = new createjs.Bitmap('/custom/resource/bear1.jpg')
                 $scope.stage.addChild(baseBitmap);
 
                 //context for axis for main data
@@ -87,9 +87,9 @@
 
                 shape = new createjs.Shape(g);
                 shape.name = '1imnida';
-                shape.alpha = 0;
-                shape.hitArea = new createjs.Shape(g);
-                shape.hitArea.graphics.beginFill("#FFF000").dr(500, 200, 400, 30);
+                //shape.alpha = 0;
+                //shape.hitArea = new createjs.Shape(g);
+                //shape.hitArea.graphics.beginFill("#FFF000").dr(500, 200, 400, 30);
                 setEventListner(shape);
                 $scope.stage.addChild(shape);
             }
@@ -101,9 +101,9 @@
 
                 shape = new createjs.Shape(g);
                 shape.name = '2imnida';
-                shape.alpha = 0;
-                shape.hitArea = new createjs.Shape(g);
-                shape.hitArea.graphics.beginFill("#FFF000").dr(700, 500, 400, 30);
+                //shape.alpha = 0;
+                //shape.hitArea = new createjs.Shape(g);
+                //shape.hitArea.graphics.beginFill("#FFF000").dr(700, 500, 400, 30);
 
                 setEventListner(shape);
                 $scope.stage.addChild(shape);
@@ -144,11 +144,11 @@
             function setContentsBitmapByName(e) {
                 if(e.target.name == '1imnida')
                 {
-                    contentsBitmap = new createjs.Bitmap('/custom/resource/WBB_group.jpg')
+                    contentsBitmap = new createjs.Bitmap('/custom/resource/bear2.jpg')
                 }
                 else if (e.target.name == '2imnida')
                 {
-                    contentsBitmap = new createjs.Bitmap('/custom/resource/panda.png')
+                    contentsBitmap = new createjs.Bitmap('/custom/resource/bear3.jpg')
                 }
                 contentsBitmap.alpha = 0;
                 $scope.stage_background.removeAllChildren();
