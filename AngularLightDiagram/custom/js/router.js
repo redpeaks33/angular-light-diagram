@@ -2,10 +2,10 @@
     $stateProvider
       .state('diagram', {
           url: '/diagram',
-          templateUrl: '/custom/html/diagramcontainer.html'
+          templateUrl: '/custom/html/diagram/diagramcontainer.html'
       })
       .state('overview', {
           url: '/overview',
-          templateUrl: '/custom/html/overviewcontainer.html'
+          templateUrl: '/custom/html/overview/overviewcontainer.html'
       })
 }]);

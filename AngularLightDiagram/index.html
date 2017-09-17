@@ -20,8 +20,14 @@
     <script src="/custom/js/lightdiagram.js"></script>
     <script src="/custom/js/lightoverview.js"></script>
     <script src="/custom/js/router.js"></script>
-    <link rel="stylesheet" type="text/css" href="/custom/css/lightdiagram.css">
-    <link rel="stylesheet" type="text/css" href="/custom/css/lightoverview.css">
+    <!-- service-->
+    <script src="/custom/js/service/FigureEditService.js"></script>
+    <script src="/custom/js/service/MouseOperationService.js"></script>
+    <script src="/custom/js/service/KeyboardOperationService.js"></script>
+    <script src="/custom/js/service/ZoomService.js"></script>
+
+    <link rel="stylesheet" type="text/css" href="/custom/css/diagram/lightdiagram.css">
+    <link rel="stylesheet" type="text/css" href="/custom/css/overview/lightoverview.css">
 </head>
 <body>
     <div ng-controller="MyController" ng-init="initialize()">

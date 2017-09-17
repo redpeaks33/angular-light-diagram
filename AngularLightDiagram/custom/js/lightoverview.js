@@ -9,7 +9,7 @@
             width: '=',
             height: '=',
         },
-        templateUrl: '/custom/html/lightoverview.html',
+        templateUrl: '/custom/html/overview/lightoverview.html',
         controller: ['$scope', '$timeout', function ($scope, $timeout) {
             var chartSizeInfo = {
                 canvasSizeX: $scope.width,
