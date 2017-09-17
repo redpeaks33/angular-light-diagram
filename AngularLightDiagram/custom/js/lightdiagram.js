@@ -64,9 +64,9 @@
                 $scope.stage = new createjs.Stage($scope.chartid);
                 ctx = $scope.stage.canvas.getContext('2d');
 
-                //context for axis for main data
-                $scope.stage_background = new createjs.Stage($scope.backgroundid);
-                ctx_back = $scope.stage_background.canvas.getContext('2d');
+                ////context for axis for main data
+                //$scope.stage_background = new createjs.Stage($scope.backgroundid);
+                //ctx_back = $scope.stage_background.canvas.getContext('2d');
 
                 $scope.stage.enableMouseOver(20);
 

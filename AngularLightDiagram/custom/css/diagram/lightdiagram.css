@@ -2,9 +2,7 @@
     border:1px solid blue;
     height:1000px;
 }
-img{
-    border:1px solid green;
-}
 canvas{
     border:1px solid red;
+    overflow:auto;
 }
