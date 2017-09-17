@@ -10,7 +10,7 @@
             height: '=',
         },
         templateUrl: '/custom/html/diagram/lightdiagram.html',
-        controller: ['$scope', '$timeout', 'FigureEditService', 'KeyboardOperationService', function ($scope, $timeout, FigureEditService, KeyboardOperationService) {
+        controller: ['$scope', '$timeout', '$window', 'FigureEditService', 'KeyboardOperationService', function ($scope, $timeout, $window,FigureEditService, KeyboardOperationService) {
             var chartSizeInfo = {
                 canvasSizeX: $scope.width,
                 canvasSizeY: $scope.height,
@@ -33,6 +33,27 @@
                     createjs.Ticker.timingMode = createjs.Ticker.RAF;
                 });
             }
+
+            //angular.element($window).bind('resize', function () {
+
+            //    //$scope.width = $window.innerWidth;
+
+            //    // manuall $digest required as resize event
+            //    // is outside of angular
+            //    //$scope.$digest();
+            //    $scope.stage.canvas.width = $window.innerWidth;
+            //    $scope.stage.canvas.height = $window.innerHeight;
+            //    $scope.image.scaleX = chartSizeInfo.xMax / $scope.image.getBounds().width;
+            //    $scope.image.scaleY = chartSizeInfo.yMax / $scope.image.getBounds().height;
+            //});
+
+            //function windowResize() {
+            //    alert();
+            //    //stage.canvas.width = window.innerWidth;
+            //    //stage.canvas.height = window.innerHeight;
+            //    //var test = (window.innerHeight / 500) * 1;
+            //    //exportRoot.scaleX = exportRoot.scaleY = test;
+            //}
             function handleTick() {
                 $scope.stage.update();
             }
@@ -52,19 +73,27 @@
                 var canvas = document.getElementById($scope.chartid);
                 canvas.addEventListener("mousewheel", MouseWheelHandler, false);
                 canvas.addEventListener("DOMMouseScroll", MouseWheelHandler, false);
-
+                
                 setZoomEvent($scope.stage);
 
-                let image = new createjs.Bitmap("/custom/resource/chk_captcha.png");
-                //image.x = 0; image.y = 0; image.visible = true;
+                $scope.image = new createjs.Bitmap("/custom/resource/chk_captcha.png");
+                let image = $scope.image;
 
+                image.x = 0; image.y = 0; image.visible = true;
+                image.scaleX = chartSizeInfo.xMax / image.getBounds().width;
+                image.scaleY = chartSizeInfo.yMax / image.getBounds().height;
+                image.image.onload = function () {
+                    $scope.stage.update();
+                }
+                $timeout(function () {
+                    $scope.stage.update();
+                });
                 $scope.stage.addChild(image);
                 $scope.stage.update();
                 addCircle(10, 200, 100);
                 addCircle(3, 400, 400);
 
-
-                KeyboardOperationService.setKeyEvent();
+                //KeyboardOperationService.setKeyEvent();
             }
             //#endregion
 
