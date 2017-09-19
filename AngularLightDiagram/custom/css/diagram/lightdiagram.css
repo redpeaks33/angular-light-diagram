@@ -1,8 +1,11 @@
 ﻿.tablearea{
-    border:1px solid blue;
+    background-color:blue;
     height:1000px;
 }
 canvas{
     border:1px solid red;
-    overflow:auto;
+}
+
+body{
+    overflow:hidden;
 }

@@ -34,26 +34,19 @@
                 });
             }
 
-            //angular.element($window).bind('resize', function () {
+            angular.element($window).bind('resize', function () {
+                //Stage上のすべてのObjectの位置を計算する必要がある？なんか方法ありそう
 
-            //    //$scope.width = $window.innerWidth;
+                $scope.stage.canvas.width = $window.innerWidth/2;
+                $scope.stage.canvas.height = $window.innerHeight / 2;
 
-            //    // manuall $digest required as resize event
-            //    // is outside of angular
-            //    //$scope.$digest();
-            //    $scope.stage.canvas.width = $window.innerWidth;
-            //    $scope.stage.canvas.height = $window.innerHeight;
-            //    $scope.image.scaleX = chartSizeInfo.xMax / $scope.image.getBounds().width;
-            //    $scope.image.scaleY = chartSizeInfo.yMax / $scope.image.getBounds().height;
-            //});
+                bitmap = new createjs.Bitmap($scope.image);
+                bitmap.scaleX = $scope.stage.canvas.width / bitmap.getBounds().width;
+                bitmap.scaleY = $scope.stage.canvas.height / bitmap.getBounds().height;
+                $scope.stage.addChild(bitmap);
+                $scope.stage.update();
+            });
 
-            //function windowResize() {
-            //    alert();
-            //    //stage.canvas.width = window.innerWidth;
-            //    //stage.canvas.height = window.innerHeight;
-            //    //var test = (window.innerHeight / 500) * 1;
-            //    //exportRoot.scaleX = exportRoot.scaleY = test;
-            //}
             function handleTick() {
                 $scope.stage.update();
             }
@@ -73,28 +66,31 @@
                 var canvas = document.getElementById($scope.chartid);
                 canvas.addEventListener("mousewheel", MouseWheelHandler, false);
                 canvas.addEventListener("DOMMouseScroll", MouseWheelHandler, false);
-                
+                canvas.addEventListener("mouseover", MouseOverHandler, false);
+                canvas.addEventListener("mouseout", MouseOutHandler, false);
                 setZoomEvent($scope.stage);
 
-                $scope.image = new createjs.Bitmap("/custom/resource/chk_captcha.png");
-                let image = $scope.image;
-
-                image.x = 0; image.y = 0; image.visible = true;
-                image.scaleX = chartSizeInfo.xMax / image.getBounds().width;
-                image.scaleY = chartSizeInfo.yMax / image.getBounds().height;
-                image.image.onload = function () {
-                    $scope.stage.update();
-                }
-                $timeout(function () {
-                    $scope.stage.update();
-                });
-                $scope.stage.addChild(image);
-                $scope.stage.update();
-                addCircle(10, 200, 100);
-                addCircle(3, 400, 400);
+                //#region image
+                $scope.image = new Image();
+                $scope.image.src = "https://i.pinimg.com/736x/6b/3d/b5/6b3db581849316c483e68a04aa3421e6--cartoon-bear-show-us.jpg";
+                $scope.image.onload = handleImageLoad;
+                //#endregion
 
                 //KeyboardOperationService.setKeyEvent();
             }
+
+            $scope.image;
+            let bitmap;
+            function handleImageLoad(event) {
+                bitmap = new createjs.Bitmap($scope.image);
+                bitmap.scaleX = chartSizeInfo.xMax / bitmap.getBounds().width;
+                bitmap.scaleY = chartSizeInfo.yMax / bitmap.getBounds().height;
+                $scope.stage.addChild(bitmap);
+                addCircle(10, 200, 100);
+                addCircle(3, 400, 400);
+                $scope.stage.update();
+            }
+
             //#endregion
 
             //#region Edit Figure
@@ -129,18 +125,19 @@
                 stage.update();
             }
 
-            function addCircle(r, x, y) {
-                let stage = $scope.stage;
-                var g = new createjs.Graphics().beginFill("#ff0000").drawCircle(0, 0, r);
-                var s = new createjs.Shape(g)
-                s.x = x;
-                s.y = y;
-                stage.addChild(s);
-                stage.update();
+            function MouseOverHandler(e) {
+                let element = document.getElementsByTagName("body")[0];
+                element.style.overflow = 'hidden';
+            }
+
+            function MouseOutHandler(e) {
+                let element = document.getElementsByTagName("body")[0];
+                element.style.overflow = 'auto';
             }
 
             var setZoomEvent = function (stage) {
                 stage.enableDOMEvents(true);
+                //stage.enableMouseOver(10);
                 stage.addEventListener("stagemousedown", function (e) {
                     var offset = { x: stage.x - e.stageX, y: stage.y - e.stageY };
                     stage.addEventListener("stagemousemove", function (ev) {
@@ -152,7 +149,26 @@
                         stage.removeAllEventListeners("stagemousemove");
                     });
                 });
+                //stage.addEventListener("mouseenter", function (e) {
+                //    let element = document.getElementsByTagName("body")[0];
+                //    element.style.overflow = 'hidden'
+                //});
+                //stage.addEventListener("mouseout", function (e) {
+                //    let element = document.getElementsByTagName("body")[0];
+                //    element.style.overflow = 'auto';
+                //});
             }
+
+            function addCircle(r, x, y) {
+                let stage = $scope.stage;
+                var g = new createjs.Graphics().beginFill("#ff0000").drawCircle(0, 0, r);
+                var s = new createjs.Shape(g)
+                s.x = x;
+                s.y = y;
+                stage.addChild(s);
+                stage.update();
+            }
+
         }],
     };
 });
